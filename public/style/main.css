@@ -52,6 +52,7 @@ textarea {
   padding: 5px;
   margin: 0;
   border: 0;
+  outline: none;
   background-color: #293b5f;
   color: #caf7e3;
 }
