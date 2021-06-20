@@ -53,18 +53,70 @@ clean.addEventListener('click', function (event) {
   }, 2_000)
 })
 
+const quotations = ["'", '"', '`']
+const delimiters = Object.freeze({
+  '{': '}',
+  '[': ']',
+  '(': ')',
+})
 const editor = document.getElementById('editor')
 editor.addEventListener('keydown', function (event) {
+  const editor = this as HTMLTextAreaElement
+  const start = editor.selectionStart
+  const end = editor.selectionEnd
+
   if (event.key == 'Tab') {
     event.preventDefault()
-    const editor = this as HTMLTextAreaElement
-
-    const start = editor.selectionStart
-    const end = editor.selectionEnd
-
     editor.value =
       editor.value.substring(0, start) + '\t' + editor.value.substring(end)
 
     editor.selectionStart = editor.selectionEnd = start + 1
+  }
+
+  if (event.key == 'Enter') {
+    if (Object.keys(delimiters).includes(editor.value[start - 1])) {
+      event.preventDefault()
+      editor.value =
+        editor.value.substring(0, start) +
+        '\n  \n' +
+        editor.value.substring(end)
+
+      editor.selectionStart = editor.selectionEnd = start + 3
+    }
+  }
+
+  if (Object.keys(delimiters).includes(event.key)) {
+    editor.value =
+      editor.value.substring(0, start) +
+      delimiters[event.key] +
+      editor.value.substring(end)
+
+    editor.selectionStart = editor.selectionEnd = start
+  }
+
+  if (quotations.includes(event.key)) {
+    editor.value =
+      editor.value.substring(0, start) + event.key + editor.value.substring(end)
+
+    editor.selectionStart = editor.selectionEnd = start
+  }
+
+  if (event.key == 'Backspace') {
+    if (
+      quotations.includes(editor.value[start - 1]) ||
+      Object.keys(delimiters).includes(editor.value[start - 1])
+    ) {
+      if (
+        quotations.includes(editor.value[start]) ||
+        Object.values(delimiters).includes(editor.value[start])
+      ) {
+        event.preventDefault()
+        editor.value =
+          editor.value.substring(0, start - 1) +
+          editor.value.substring(start + 1, editor.value.length)
+
+        editor.selectionStart = editor.selectionEnd = start - 1
+      }
+    }
   }
 })
