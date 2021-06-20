@@ -11,7 +11,7 @@ console.log = (...args) => {
 hub.on('log', args => {
   const display = document.getElementById('display')
   args.forEach(a => {
-    display.innerHTML += a + ' '
+    display.innerHTML += (typeof a == 'object' ? JSON.stringify(a) : a) + ' '
   })
   display.innerHTML += '<br>'
 })
