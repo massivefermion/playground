@@ -11,15 +11,24 @@ console.log = (...args) => {
 
 hub.on('log', args => {
   const display = document.getElementById('display')
+
   args.forEach(a => {
     display.innerHTML += (typeof a == 'object' ? stringify(a) : a) + ' '
   })
+
   display.innerHTML += '<br>'
+})
+
+hub.on('clean', () => {
+  document.getElementById('display').innerHTML = ''
 })
 
 hub.on('compiled', (code: string) => {
   const formatted =
-    'data:text/javascript;charset=utf-8,' + encodeURIComponent(code)
+    'data:text/javascript;charset=utf-8;name=' +
+    Date.now() +
+    ',' +
+    encodeURIComponent(code)
 
   import(formatted).catch((msg: string) => {
     hub.emit('error', msg)
@@ -39,6 +48,8 @@ const run = document.getElementById('run')
 run.addEventListener('click', function (event) {
   this.classList.add('clicked')
   const editor = document.getElementById('editor') as HTMLTextAreaElement
+
+  hub.emit('clean')
   const code = editor.value
   hub.emit('compiled', code)
 })
@@ -47,7 +58,8 @@ const clean = document.getElementById('clean')
 clean.addEventListener('click', function (event) {
   this.classList.add('clicked')
   ;(document.getElementById('editor') as HTMLTextAreaElement).value = ''
-  document.getElementById('display').innerHTML = ''
+  hub.emit('clean')
+
   setTimeout(() => {
     this.classList.remove('clicked')
   }, 2_000)
