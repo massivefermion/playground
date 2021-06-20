@@ -1,0 +1,74 @@
+@font-face {
+  font-family: cascadia;
+  src: url('../fonts/CascadiaCode-Light.otf');
+}
+
+* {
+  font-family: cascadia;
+}
+
+body {
+  margin: 128px;
+  background-color: #0c4271;
+}
+
+#run {
+  transition: all 1s ease-in-out;
+}
+
+#run.clicked {
+  transform: rotate(90deg);
+}
+
+#clean {
+  transition: all 2s ease-in-out;
+}
+
+#clean.clicked {
+  animation: shake 2s;
+}
+
+textarea {
+  resize: none;
+}
+
+#playground {
+  display: flex;
+  justify-content: space-between;
+}
+
+#display {
+  width: 50%;
+  padding: 1.6%;
+  padding: 5px;
+  margin: 0;
+  background-color: #293b5f;
+  color: #caf7e3;
+}
+
+#editor {
+  width: 750px;
+  height: 512px;
+  padding: 5px;
+  margin: 0;
+  border: 0;
+  background-color: #293b5f;
+  color: #caf7e3;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(5deg);
+  }
+  10% {
+    transform: translate(-1px, -1px) rotate(-5deg);
+  }
+
+  20% {
+    transform: translate(1px, 1px) rotate(-5deg);
+  }
+
+  30% {
+    transform: translate(-1px, -1px) rotate(5deg);
+  }
+}
