@@ -6,7 +6,8 @@
   "devDependencies": {
     "@types/events": "^3.0.0",
     "@types/node": "^15.12.4",
-    "esbuild": "^0.12.9"
+    "esbuild": "^0.12.9",
+    "esbuild-wasm": "^0.12.9"
   },
   "scripts": {
     "dev": "esbuild src/main.ts --bundle --servedir=public --outfile=public/js/bundle.js",
