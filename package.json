@@ -1,17 +1,15 @@
 {
     "name": "playground",
     "version": "1.0",
-    "dependencies": {
-        "events": "^3.3.0",
-        "stringify-object": "^3.3.0"
-    },
     "devDependencies": {
         "@types/events": "^3.0.0",
         "@types/node": "^15.12.4",
         "@types/stringify-object": "^3.3.0",
         "esbuild": "^0.12.9",
         "esbuild-wasm": "^0.12.9",
-        "live-server": "^1.2.1"
+        "events": "^3.3.0",
+        "live-server": "^1.2.1",
+        "stringify-object": "^3.3.0"
     },
     "scripts": {
         "build": "esbuild src/main.ts --bundle --minify --outfile=public/js/bundle.js",
