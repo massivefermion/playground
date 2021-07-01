@@ -1,10 +1,8 @@
-@font-face {
-  font-family: fira;
-  src: url('../fonts/FiraCode-Light.woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap');
 
 * {
-  font-family: fira;
+  font-family: 'Fira Code', monospace;
+  user-select: false;
 }
 
 body {
