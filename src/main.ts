@@ -65,6 +65,28 @@ clean.addEventListener('click', function (event) {
   }, 2_000)
 })
 
+const codeCopy = document.getElementById('code-copy')
+codeCopy.addEventListener('click', function (event) {
+  this.classList.add('clicked')
+  const value = (document.getElementById('editor') as HTMLTextAreaElement).value
+  navigator.clipboard.writeText(value)
+
+  setTimeout(() => {
+    this.classList.remove('clicked')
+  }, 2_000)
+})
+
+const resultCopy = document.getElementById('result-copy')
+resultCopy.addEventListener('click', function (event) {
+  this.classList.add('clicked')
+  const value = document.getElementById('display').innerText
+  navigator.clipboard.writeText(value)
+
+  setTimeout(() => {
+    this.classList.remove('clicked')
+  }, 2_000)
+})
+
 const quotations = ["'", '"', '`']
 const delimiters = Object.freeze({
   '{': '}',

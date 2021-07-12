@@ -12,12 +12,19 @@
 
 <body>
     <div id="workspace">
-        <img src="icons/build.png" id="run">
-        <img src="icons/clean.png" id="clean">
-
-        <div id="playground">
-            <textarea id="editor" spellcheck="false"></textarea>
-            <div id="display"></div>
+        <div id="playground" class="row">
+            <div class="column">
+                <div class="row">
+                    <img src="icons/build.png" id="run" width="32">
+                    <img src="icons/clean.png" id="clean" width="32">
+                    <img src="icons/copy.png" id="code-copy" width="32">
+                </div>
+                <textarea id="editor" spellcheck="false"></textarea>
+            </div>
+            <div class="column">
+                <img src="icons/copy.png" id="result-copy" width="32">
+                <div id="display"></div>
+            </div>
         </div>
     </div>
 </body>

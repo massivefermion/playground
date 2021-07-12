@@ -3,10 +3,10 @@
     "version": "1.0",
     "devDependencies": {
         "@types/events": "^3.0.0",
-        "@types/node": "^15.12.4",
-        "@types/stringify-object": "^3.3.0",
-        "esbuild": "^0.12.9",
-        "esbuild-wasm": "^0.12.9",
+        "@types/node": "^15.14.2",
+        "@types/stringify-object": "^3.3.1",
+        "esbuild": "^0.12.15",
+        "esbuild-wasm": "^0.12.15",
         "events": "^3.3.0",
         "live-server": "^1.2.1",
         "stringify-object": "^3.3.0"

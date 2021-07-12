@@ -22,7 +22,13 @@ body {
   transition: all 2s ease-in-out;
 }
 
-#clean.clicked {
+#result-copy {
+  margin-left: -800px;
+}
+
+#clean.clicked,
+#code-copy.clicked,
+#result-copy.clicked {
   animation: shake 2s;
 }
 
@@ -30,16 +36,28 @@ textarea {
   resize: none;
 }
 
-#playground {
+.row {
   display: flex;
+  justify-content: left;
+}
+
+#playground {
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 #display {
-  width: 50%;
+  width: 750px;
+  height: 100%;
   padding: 1.6%;
   padding: 5px;
   margin: 0;
+  margin-left: -800px;
   background-color: #293b5f;
   color: #caf7e3;
 }
