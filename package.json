@@ -3,16 +3,16 @@
     "version": "1.0",
     "devDependencies": {
         "@types/events": "^3.0.0",
-        "@types/node": "^15.14.2",
-        "@types/stringify-object": "^3.3.1",
-        "esbuild": "^0.12.15",
-        "esbuild-wasm": "^0.12.15",
+        "@types/node": "^17.0.12",
+        "@types/stringify-object": "^4.0.1",
+        "esbuild": "^0.14.14",
+        "esbuild-wasm": "^0.14.14",
         "events": "^3.3.0",
-        "live-server": "^1.2.1",
-        "stringify-object": "^3.3.0"
+        "http-server": "^14.1.0",
+        "stringify-object": "^4.0.0"
     },
     "scripts": {
         "build": "esbuild src/main.ts --bundle --minify --outfile=public/js/bundle.js",
-        "start": "live-server public"
+        "start": "http-server public"
     }
 }
